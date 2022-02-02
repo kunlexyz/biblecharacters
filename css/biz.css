@@ -1,0 +1,122 @@
+
+.per{
+	text-align:left;
+	padding:10px;
+	background:#111;
+	color:#0C3;
+}
+.at{
+	color:#FF0;
+	background:#182916;
+	padding:10px 5px;
+	margin-top:5px;
+}
+.point{
+	color:#FFF;
+}
+.tb{
+	border-collapse:collapse;
+}
+
+.tb tr:nth-child(even){
+	background:#030;
+}
+
+.tb td:nth-child(1){
+	border-right:#037720 solid;
+}
+.tb td{padding:5px;}
+
+.pg{
+	position:fixed;
+	top:0px;
+	display:none;
+	height: 100vh;
+	overflow:auto;
+	
+	background-color:#FFF;
+	border-right:solid 2px #ddd;
+	
+  box-shadow: 0 4px 6px;
+  /*
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  checkout for 'transition' for easy animation in future*/
+  font-family:myfont2;
+  
+  padding-bottom:20px;
+}
+.below {
+	width:100%;
+	text-align:center;
+	margin-top:20px;
+	margin-bottom:100px;
+	}
+.hh7{color:#0b6f08;}
+.menu_head:hover{background-color:#090;}
+.mCon{padding-top:2px;}
+
+/****Ledger table ****/
+.ledger{min-width:300px;
+	margin:auto;
+	margin:10px auto;}
+.ledger, .ledger th{
+	border-collapse: collapse;
+	border:none;
+}
+
+.ledger th{
+	border-bottom: 1px solid black;
+}
+
+.ledger th td:nth-child(2), .ledger td:nth-child(2){
+	border-left: 1px solid black;
+}
+._33{width:32%;}
+._50{width:48%;}
+.ri{text-align:right;}
+
+.empty td:nth-child(2){
+	border-left:none;
+}
+
+/***Theory Question****/
+.theory_bg{
+	background:#096;
+	padding:10px;
+}
+.th_no{
+	font-size:30px;
+	text-align:center;
+	width:60px;
+	height:50px;
+	padding-top:10px;
+	border-radius:30px;
+	background:#FF3;
+	box-shadow:5px 5px 5px #333;
+	position:absolute;
+}
+.th_q{
+	font-size:20px;
+	margin:20px;
+	margin-left:30px;
+	padding:40px;
+	padding-right:20px;
+	box-shadow:5px 5px 5px #333;
+	border-left:solid 5px #FF3;
+	background:#39f9ac;
+}
+
+.chap_sum{
+	border-left:8px #59f917 solid;
+	border-right:8px #59f917 solid;
+	color:#FF0;
+}
+
+.theory_head{
+	background:#044a20;
+	font-size:18px;
+}
+
+.obj{
+	background:#3bf97e;
+}

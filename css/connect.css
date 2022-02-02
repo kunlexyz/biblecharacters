@@ -1,0 +1,84 @@
+.cirCh{
+	width:40px;
+	height:30px;
+	border-radius:25px;
+	padding-top:10px;
+}
+
+.qBox_bio {
+    border: none;
+    border-bottom: 2px #03F solid;
+    background-color: #DEF3F8;
+    text-align: center;
+	font-size:17px;
+}
+/*for browser window that is smaller than 500px,
+*/
+@media only screen and (max-width: 480px) {
+    .im{
+		width:100%;
+	}
+}
+
+/*
+<li> 
+ <input type="text" placeholder="type the answer here" class="qBox_bio" onkeyup="check_it('plant')">
+</li>
+
+<textarea class="_100w ans05" placeholder="type answer here"></textarea>
+
+********
+<div class="pg">
+
+<img src="images/d.jpg" class="im" />
+
+<table>
+<tr>
+<td>
+<img src="images/bul.png" />
+</td><td>
+
+</td></tr>
+<tr>
+<td>
+<img src="images/bul.png" /></td><td>
+
+</td></tr>
+<tr>
+<td>
+<img src="images/bul.png" /></td><td>
+
+</td></tr>
+</table>
+
+<div class="lesson2">
+<div class="headaChap red">
+LESSONS:
+</div>
+<table class="lesson"><tr><td>
+<img src="images/bul2.png" />
+</td><td>
+
+
+</td></tr><tr><td>
+<img src="images/bul2.png" />
+</td><td>
+
+</td></tr></table>
+</div>
+
+<img src="images/acti.png" class="acti_image" />
+<div class="acti">
+
+</div>
+
+
+<div class="pgNum">
+<div class="">-</div>
+</div>
+
+ <div class="below"><div class="prev btnC fl btnRed"><span class="">&laquo; </span>Previous Page</div>
+ <div class="sign btnRed" style="padding: 3px 10px;" onclick="openNav()">&equiv;<br />Menu </div><div class="next btnC fr btnRed"><span class=""> &raquo; </span><br />Next Page</div></div>
+<!-- page -->
+</div>
+*/

@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>A - Z of Bible</title>
+        <link rel="stylesheet" href="MobileTem.css">
+        <link rel="stylesheet" href="css/style_new.css">
+       
+    </head>
+<style>
+body{
+  font-family:myfont2;
+  background-color:#111;  
+	background-image: url(images/bg_book2.jpg);
+}
+
+.pg{
+	top:0px;
+	width:99%;
+	overflow:auto;
+	background-color:#FFF;
+	border-right:solid 2px #ddd;
+	
+  box-shadow: 0 4px 6px;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  font-family:myfont2;
+  
+  padding-bottom:20px;
+}
+
+.capsule{
+    font-size: 27px;
+    box-shadow: 0px 5px 9px rgb(0 0 0 / 50%);
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+.cap{}
+.al{
+	font-size:36px;
+	font-weight:900;
+	color:#FFF;
+    border-radius: 15px;
+	background:#F00;
+	padding:7px 14px;
+	display:inline-block;
+	border:solid 1px #FFFFFF;
+    box-shadow: 0px 5px 9px rgb(0 0 0 / 50%);
+}
+</style>
+<body class="ce">
+
+
+<div class="contentChap ce co" id="verify">
+</div>
+
+<div id="navig8">
+</div>
+
+<div id="con_cover" class="pg" style="background:url(images/bg.jpg); background-size:cover;">
+
+<div class="box_head2">
+Table of Contents
+</div>
+
+<div class="capsule" onclick="go_(2)">
+&copy;Copyright
+</div>
+
+<div class="capsule" onclick="go_(3)">
+Dedication
+</div>
+
+<div class="capsule" onclick="go_(4)">
+Foreword
+</div>
+
+<div class="capsule" onclick="go_(5)">
+Godly Character
+</div>
+
+<div style="text-align:center;">
+	<div style="
+    display:inline-block;
+    background:#b10852;
+    color:#FFF;
+    margin:10px auto;
+    padding:0px 5px;
+    ">Click or touch an alphabeth to navigate</div>
+</div>
+
+<div id="char_con" style="text-align:center; padding:0px 10px;">
+
+<div class="al">A</div>
+
+</div>
+
+	<div id="test"></div>
+
+<a href="puzzle.html">
+<div class="capsule" style="margin-top:10px;
+border:1px solid #CCC;">
+Puzzle
+</div>
+</a>
+
+<a href="copyright.html">
+<div class="capsule" style="margin-bottom:30px;
+border:1px solid #CCC;">
+The Author
+</div>
+</a>
+
+<!-- page -->
+</div>
+
+</body>
+<script type="text/javascript" src="js/nav.js">
+</script>
+<script type="text/javascript" src="js/jq.js"></script>
+<script type="text/javascript" src="js/connect.js">
+</script>
+<!-- 
+<script type="text/javascript" src="js/biz.js">
+</script>
+-->
+<script>
+old='read';
+old2='read';
+alph = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+console.log(alph[0]);
+content = '';
+L='';
+for (i=0;i<alph.length;i++){
+		content = '<div class="al" onclick="go_(\''+(i+6)+'\')">'+alph[i]+'</div>';
+		L+=content;
+}
+document.getElementById('char_con').innerHTML=L;
+
+function go_(p){
+	var addr='inner.html#'+p;
+	//document.getElementById('test').innerHTML=addr;
+	document.location=addr;
+}
+
+//animation
+
+function ani(){
+	$('.al').animate({'margin': 200+'px'}, 2000);
+	$('.al').delay(500).animate({'margin': 0+'px'}, 2000);
+	
+}
+
+setTimeout(ani,2000);
+</script>
+</html>
