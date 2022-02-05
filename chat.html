@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>
+Healthcare
+</title>
+<style type="text/css">
+body{padding:0px;margin:0px;}
+.h{padding:10px;
+font-size:22px;
+background:green;
+color:#fff;
+text-align:center;
+}
+#msg{
+position:fixed;
+bottom:0px;
+width:100%;
+}
+#msg_box{
+	width:260px;
+	height:60px;
+	border:1px solid green;
+	margin-left:10px;
+}
+.send{
+	background:green;
+	width:60px;
+	height:50px;
+	padding-top:8px;
+	margin-right:15px;
+	color:#fff;
+	display:inline-block;
+	float:right;
+	vertical-align:top;
+	border-radius:30px;
+	font-size:30px;
+	text-align:center;
+}
+
+.d, #mov_, .c{
+	background:green;
+	color:#fff;
+	display:inline-block;
+	min-width:100px;
+	max-width:80%;
+	
+	margin:3px 0px;
+	padding:10px;
+	border-radius:15px;
+	border-top-right-radius: 0px;
+	text-align: left;
+}
+
+.c{
+background:#1c3e0a;
+	border-radius:15px;
+	border-top-left-radius: 0px;
+}
+
+.cona{
+	text-align: right;
+}
+.dis{
+	position:absolute;
+	right:0px;
+	bottom:90px;
+}
+
+#dis2{
+	text-align: right;
+}
+
+.comp_convo{
+	text-align: left;
+}
+#mov_{
+	display:none;
+	position:absolute;
+	right: 0px;
+}
+
+strong{
+	font-size: 18px;
+	font: oblique;
+	color: yellow;
+}
+
+#chat_app{
+	max-width: 500px;
+}
+body{background:#000;}
+</style>
+</head>
+<body><div id="chat_app">
+
+<div class="con">
+<div class="h">9thDigt Healthcare</div>
+
+<div id="dis2">
+
+<div class="d">A</div>
+
+</div>
+<div id="but"></div>
+
+<div id="dis" class="dis">
+
+<div class="d">A</div>
+<div class="d">B</div>
+<div class="d">C</div>
+
+</div>
+
+</div>
+
+<div id="msg">
+<textarea id="msg_box"></textarea>
+
+<div id="send" class="send">></div>
+
+</div>
+
+<div id="mov_">e</div>
+
+</div></body>
+<script src="./js/jq.js" >
+</script>
+
+<script type="text/javascript">
+//alert('Hello world');
+
+var cord=0;
+$(document).ready(function(){
+  $(".No_d").click(function(k){
+   // alert($(this).index());
+    
+    cord = $(this).index();
+    cord2=$(".d").eq(cord).offset();
+    //cord2 =document.getElementsByClassName('d')[cord].offsetTop;
+    //testDiv.offsetTop
+    //alert(cord2);
+    $('#mov_').css({'display':'block','top':cord2.top+'px'});
+   $('#mov_').animate({'top':'0px'},2000,function(){
+   	$("#dis2").append(('<div class="conaa"><div class="d">'+arr[cord]+'</div></div>'))
+   });
+   
+    cH = document.getElementById('but').offsetTop;
+    
+    alert("Height of div: " + cH);
+    //$(".d").hide(1000);
+    /*
+    var x = $(".d").eq(cord).offset();
+    alert("Top: " + x.top + " Left: " + x.left);
+    */
+  });
+});
+
+/*
+$(document).ready(function(){
+  $("li").click(function(){
+    alert($(this).index());
+  });
+});
+*/
+
+var arr = [
+"Stomach Pain","Runing nose","Headache"
+];
+
+res=[
+"Respond for stomach pain, Respond for stomach pain. Respond for <strong>stomach pain</strong>, Respond for <strong>stomach pain</strong>",
+"Respond for <strong>running nose</strong>, Respond for running nose, Respond for <strong>running nose</strong>, ",
+"Respond for <strong>Headache</strong>, Respond for running Headache, Respond for <strong>Headache</strong>, , "
+];
+
+
+q='';
+
+for(i=0;i<arr.length;i++){
+	q=q+'<div><div onclick="sel('+i+')" id="d_'+i+'" class="d">'+arr[i]+'</div></div>';
+}
+$('#dis').html(q);
+$('#dis2').html('<div class="comp_convo"><div class="c"> Hello, I m Niva. \
+Please, do not share any sensitive information here \
+<br><br>\
+You can type a message in the text box below if none of the options meet your requirement.\
+</div></div>');
+
+function sel(k){
+    cord = document.getElementById('d_'+k+'').offsetTop;
+    cord += document.getElementById('dis').offsetTop;
+    console.log(cord);
+	
+    cH = document.getElementById('but').offsetTop;
+
+    //cord2=$("#d_"+k).eq(cord).offset();
+    //cord2 =document.getElementsByClassName('d')[cord].offsetTop;
+    //testDiv.offsetTop
+    //alert(cord2);
+    $('#mov_').css({'display':'block','top':cord+'px'});
+	$('#mov_').html(arr[k]);
+   $('#mov_').animate({'top':cH+'px'},2000,function(){
+   		$("#dis2").append(('<div class="conaa"><div class="d">'+arr[k]+'</div></div>'));
+	 	$('#mov_').css({'display':'none'}); 
+		 		 
+		 setTimeout(function(){
+		$("#dis2").append(('<div class="comp_convo"><div class="c">'+ res[k]+'</div></div>'));
+	   },1000);
+	   
+/*	   
+   	$("#dis2").append(('<div class="comp_convo"><div class="c"> Hello, I m Niva.\
+Please, do not share any sensitive information here</div></div>')).delay(2000);
+*/
+   });
+   //return;
+    
+    //alert("Height of div: " + cH);
+
+}
+
+$(document).ready(function(){
+  $("#send").click(function(k){
+	 ms = document.getElementById('msg_box').value;
+	 //alert(ms);
+	 if(ms.length > 1){
+		ms2 = '<div class="conaa"><div class="d">'+ms+'</div></div>';
+	 }
+	 $("#dis2").append((ms2));
+
+	setTimeout(function(){
+		$("#dis2").append(('<div class="comp_convo"><div class="c"> I am a bot. Would you like me to redirect your message to available doctors online? </div></div>'));
+		
+		q=''; arr2 = ['Yes','No']
+
+		for(i=0;i<arr2.length;i++){
+			q=q+'<div><div onclick="sel('+i+')" id="d_'+i+'" class="d">'+arr2[i]+'</div></div>';
+		}
+$('#dis').html(q);
+	},1000);
+ });
+});
+</script>
+</html>
