@@ -484,7 +484,9 @@ function payWithPaystack(e) {
 
   var handler = PaystackPop.setup({
 
-	key: 'pk_live_8d5d8dba83540762c86d8c19db60547da71cb442',
+	key: 'pk_live_51bc67be9024b3760af035491cd10340b9870d05', // New key Bunmi royale
+
+	//key: 'pk_live_8d5d8dba83540762c86d8c19db60547da71cb442',//FCMB - OXbrand Planet Previous key
 
 	//key: 'pk_live_2ef52de9808da6451acc489eb37769a1c7171de5',
 	
