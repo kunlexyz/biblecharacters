@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A-Z</title>
+<link rel="stylesheet" href="css/cover.css" />
+<link rel="stylesheet" href="css/th.css" />
+        <link rel="stylesheet" href="MobileTem.css">
+<style type="text/css">
+#con_cover{
+  max-width: 480px;
+  margin: auto;
+}
+</style>
+      </head>
+
+<body style="
+background-image: url(images/bg_book2.jpg);">
+
+
+<!-- lifted code -->
+
+<div id="navig8">
+</div>
+
+
+    <div id="con_cover" class="con_cover">
+<img src="images/4.jpg" style="max-width:100%;max-height:100vh;	 
+" />
+<div style="position:fixed;bottom:0px;width:100%;left: 0px" >
+    <input type="button" value="Menu" 
+    style="font-size:20px;" onClick="openNav()"  />
+    
+    <a href="content.html">
+    <input type="button" value="Content" 
+    style="font-size:20px;" />
+    </a>
+</div>
+
+<div id="_3d_cover" style="position:fixed; top:0px;
+width:100%; height:100%; background:rgb(247, 209, 22);">
+	<img src="images/cover2.jpg" style="max-width:100%; max-height:100%;">
+    
+    <div class="below" style="position:absolute;bottom:0px;width: 100%;;">
+    
+    <div onclick="openNav()" class="prev btnC fl btnRed"><span class="">&equiv; </span>MENU</div>
+    
+ 
+        <a href="content.html">
+ <div class="next btnC fr btnRed"><span class=""> &raquo; </span><br />OPEN</div>
+        </a>
+ 
+ </div>
+ 
+    
+</div>
+    </div>
+</body>
+<script src="js/jq.js"></script>
+<script type="text/javascript" src="js/nav.js">
+</script>
+<script type="text/javascript">
+
+var old='';oldx='';
+function openNav() {
+  document.getElementById("myNav").style.width = "75vw";
+  document.getElementsByClassName('overlay2')[0].style.display='block';
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+  document.getElementsByClassName('overlay2')[0].style.display='none';
+}
+
+var intro = function(){
+        $("#intro").slideUp(3000);
+	}
+var swch = 0;
+function slidd(){
+	var xx = window.innerWidth + 50;
+	if(swch < 1){
+		//clearTimeout(stt);
+		$('#_3d_cover').animate({'left': -xx+'px'}, 2000);
+		//setTimeout(marg,2000);
+  		//document.getElementById("_1st_book").style.display='block';
+		
+		swch = 1;
+	}else{
+		$('#_3d_cover').animate({'left': 0+'px'}, 2000);
+  		//document.getElementById("_1st_book").style.display='none';
+		swch = 0;
+	}
+	setTimeout(slidd,10000);
+}
+slidd();
+</script>
+</html>
