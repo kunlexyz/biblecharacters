@@ -19,7 +19,7 @@ var verify_content = '<div id="manual_pay">\
 		<div class="content ce" style="margin-top:9px; background-color:#fdb8a8">\
         	<div id="activate">\
         	To Get your activation number\
-        </div><strong>Contact:</strong><br /><a href="https://wa.me/+2348033527655"><img src="./images/wh.png" /></a><br />+234(0)8033527655<br />+234(0)8170767404<br />or<br />\
+        </div><strong>Contact:</strong><br /><a href="https://wa.me/+2348055441551"><img src="./images/wh.png" /></a><br />+234(0)8055441551<br /><a href="https://wa.me/+2348170767404">+234(0)8170767404</a><br />or<br />\
         	<button onclick="showPayStack_box()" class="stack_button"> Pay with paystack payment gateway \
             </button>\
             \
