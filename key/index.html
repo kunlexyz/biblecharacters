@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Key Generator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body{
+    background-color: black;
+    margin: 0px;
+    padding: 0px;
+}
+.heada1{
+    background-color: rgb(51, 6, 6);
+    color: #fff;
+    text-align: center;
+}
+
+.heada{
+    font-size: 28px;
+}
+.mCon{
+    float: left;
+    padding-top: 4px;
+    padding-left: 5px;
+
+}
+.mCon3{
+    border-bottom: solid 1px rgb(27, 15, 15);
+}
+
+.menu_dash{
+    padding: 2px;
+    margin: 3px;
+    background-color: #fff;
+    width: 15px;
+}
+
+.bullet{
+    padding: 5px;
+    background-color: #fff;
+    display: inline-block;
+    margin: 0px 5px 3px 15px;
+}
+
+.chap{
+    color: #fff;
+    display: inline-block;
+    font-size: 22px;
+    padding: 12px;
+}
+
+#gate, #pro_gate{
+	width:100%;
+	height:100vh;
+	text-align:center;
+	padding-top:50px;
+}
+
+.who{
+	background-color:#F90; font-size:32px; margin:3px 0px ; padding:5px 0px; font-weight:bolder;
+}
+
+.tt{font-size:20px
+        ; border:none; border-bottom:solid medium #F00; padding:10px; border-radius:5px;}
+</style>
+</head>
+<body>
+
+    <!--
+<div id="pro_gate">
+	<div id="pro_who" style="color:#FFF; font-size:24px;">
+    XYZ
+    </div>
+    <input type="text" placeholder="Pro_Key" class="tt" style="border:solid 2px #fff; background:none; color:#fff;" onKeyUp="pro_act()" id="Pro_Key" />
+
+</div>
+    -->
+<div id="gate">
+	<div id="who" class="who">WHO</div>
+    <input type="text" placeholder="Enter an activation key" class="tt" id="key002" onKeyUp="enta()" />
+</div>
+<div id="showkey" style="display: none;">
+    <div style=" position:absolute; text-align:center;width:100%; padding-top:15px;color:#FC0;font-weight:bolder; font-size:24px;
+    ">
+    	Key
+    </div>
+    <img src="../images/1x1.png" style="width:100px; vertical-align:middle;"  />
+    <div style="text-align:center; padding-top:50px;">
+    	<input type="text" placeholder="Enter an activation key" style="font-size:20px
+        ; border:none; border-bottom:solid medium #F00; padding:10px; border-radius:5px;" id="key001" />
+    <div style="background-color:#F90; font-size:32px; margin:3px 0px ; padding:5px 0px; font-weight:bolder; display:none;" id="keyS">xxAA</div>
+    
+    <input type="button" value="Generate Key" style="font-size:20px
+        ; border:none; padding:10px; background-color:#F00; color:#FFF;"  onClick="acti2()" />
+    </div>
+</div>    
+<!-- create a key for the master Key //DONE-->
+<!-- send every recorded key to server -->
+<!-- Create an api to return the last ten activated people -->
+<!-- previous content -->
+<!--  
+        <div class="heada1" onClick="gener()">
+            <div class="mCon">
+                <div class="menu_dash"></div>
+                <div class="menu_dash"></div>
+                <div class="menu_dash"></div>
+            </div>
+            <div class="heada">Content</div>
+        </div>
+        <div class="mCon2">
+                <div class="mCon3">
+                        <div class="bullet"></div>
+                        <div class="chap">Chapter 1</div>
+                    </div>
+    
+                    <div class="mCon3">
+                            <div class="bullet"></div>
+                            <div class="chap">Chapter 1</div>
+                        </div>
+    
+                        <div class="mCon3" onClick="acti()">
+                                <div class="bullet"></div>
+                                <div class="chap">Chapter 3</div>
+                            </div>
+    
+                        <div class="mCon3" onClick="acti()">
+                                <div class="bullet"></div>
+                                <div class="chap">Chapter 4</div>
+                            </div>
+    
+                        <div class="mCon3" onClick="acti()">
+                                <div class="bullet"></div>
+                                <div class="chap">Chapter 5</div>
+                            </div>
+                
+        </div>
+        <input type="text" id="key001">
+        <button onClick="acti2()">generate</button>
+-->
+    </body>
+    <script type="text/javascript" src="script.js"></script>
+</html>
