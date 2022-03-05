@@ -5,7 +5,10 @@ var nav = '<div class="mCon2" onclick="openNav()">                              
 seti = '<div id="seti" class="co" style="z-index:95;">     	<div class="content ce"><div class="pa">Reading Setting</div>               <div class="imDesc"> Text Size:</div>    <div onclick="sizIN()" class="sBox sOrange">+</div>    <div onclick="sizDE()" class="sBox sOrange">-</div>                     <div class="imDesc"> Themes:</div><div><!-- (title,text,groundD,groundOdd,titleText) -->    <div onclick="theme2(\'#A85400\',\'#000\',\'#ffffa5\',\'#ffc774\',\'#fff\',1)" class="sBox sOrange">    <div class="sBoxUp" style="background-color:#A85400; color:#FFF;"></div>    <div class="sBoxDown" style="background-color:#FC0; color:#000;">1</div>    </div>        <div onclick="theme2(\'#F00\',\'#000\',\'#FFF\',\'#fde\',\'#fff\',2)" class="sBox sOrange">    <div class="sBoxUp" style="background-color:#F00; color:#FFF;"></div>    <div class="sBoxDown" style="background-color:#FFF; color:#000;">2</div>    </div>        <div onclick="theme2(\'#060\',\'#000\',\'#dFd\',\'#afa\',\'#fff\',3)" class="sBox sOrange">    <div class="sBoxUp" style="background-color:#060; color:#FFF;"></div>    <div class="sBoxDown" style="background-color:#3F6; color:#000;">3</div>    </div>        <div onclick="theme2(\'#C09\',\'#000\',\'#fbb8fb\',\'#fb99fb\',\'#fff\',4)" class="sBox sOrange">    <div class="sBoxUp" style="background-color:#C09; color:#FFF;"></div>    <div class="sBoxDown" style="background-color:#F9F; color:#000;">4</div>    </div>        <div onclick="theme2(\'#006\',\'#000\',\'#99F\',\'#AAF\',\'#FFF\',5)"  class="sBox sOrange">    <div class="sBoxUp" style="background-color:#006; color:#FFF;"></div>    <div class="sBoxDown" style="background-color:#09F; color:#000;">5</div>    </div>        <div onclick="theme2(\'#412\',\'#DDD\',\'#000\',\'#111\',\'#FFF\',6)"  class="sBox sOrange">    <div class="sBoxUp" style="background-color:#000; color:#FFF;"></div>    <div class="sBoxDown" style="background-color:#111; color:#aaa;">6</div>    </div>    </div>       <div class="pa">Hand writing:</div><select id="font" onchange="fontType()">  <option value="myFont2">Comic</option>  <option value="myFont3">Sylfaen</option>  <option value="myFont4">Swis</option>  <option value="myFont5">Freehand</option>  <option selected="selected" value="myFirstFont">Futura</option></select> <br />  <button onclick="hideSeti()" class="btnRed"> back </button>  <button onclick="hideSeti()" class="btnRed"> ok </button>           </div>    </div>';
 
 document.getElementById('navig8').innerHTML=bar+nav+seti;
-
+var ver='';
+if(typeof localStorage.biO !== 'undefined'){
+    ver = localStorage.biO;
+}
 var verify_content = '<div id="manual_pay">\
 <div class="headaChap">    \
     To Get this chapter, you must activate this app<br />    Version: 1.0.2	\
@@ -18,8 +21,8 @@ var verify_content = '<div id="manual_pay">\
 \
 		<div class="content ce" style="margin-top:9px; background-color:#fdb8a8">\
         	<div id="activate">\
-        	To Get your activation number\
-        </div><strong>Contact:</strong><br /><a href="https://wa.me/+2348055441551"><img src="./images/wh.png" /></a><br />+234(0)8055441551<br /><a href="https://wa.me/+2348170767404">+234(0)8170767404</a><br />or<br />\
+        	To activate, click any of the phone number below\
+        </div><strong>Contact:</strong><br /><a href="https://wa.me/+2348055441551?text=My%20Bible%20Character%20verification%20Number%20is%20'+ver+'"><img src="./images/wh.png" /><br />+234(0)8055441551</a><br /><a href="https://wa.me/+2348170767404?text=My%20Bible%20Character%20verification%20Number%20is%20'+ver+'">+234(0)8170767404</a><br />or<br />\
         	<button onclick="showPayStack_box()" class="stack_button"> Pay with paystack payment gateway \
             </button>\
             \
