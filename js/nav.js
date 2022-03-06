@@ -45,7 +45,7 @@ var verify_content = '<div id="manual_pay">\
 </div>  <div class="form-group">\
     <tr>\
     	<td>    <label for="amount">Amount:</label>	</td>\
-        <td>    <b style="color:#060;">500 Naira Only</b>    <!--    <input type="tel" id="amount" required />    -->	\
+        <td>    <b style="color:#060;">1000 Naira Only</b>    <!--    <input type="tel" id="amount" required />    -->	\
         </td>\
     </tr>  \
 </div>  <div class="form-group">\

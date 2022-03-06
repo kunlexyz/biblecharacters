@@ -23,7 +23,7 @@ function closeNav() {
 
 //****a function for loading security
 function loadGate(){
-	var gate = '<div class="contentChap ce" id="verify" style="position:fixed;"><div class="headaChap">To Get this chapter, you must activate this app<br />Version: 1.0.2</div>Verification Number:<div id="vN" class="heada" style="font-size:33px;">XXXXX</div><div class="imDesc">Enter the Activation Number below:</div><input type="text" onblur="upperC()" id="act" name="act" style="border:solid 3px #090; min-width:300px; max-width:95%; font-size:33px; text-align:center" /><br /><button onclick="activ8()">Activate</button><div class="content ce" style="margin-top:9px; background-color:#C8FDA8"><div id="activate">To Get your activation number</div><strong>Contact:</strong><br /><img src="../images/wh.png" /><br />08033527655<br />+2348033527655</div><button onclick="rem()">removeIt</button><div id="tk"></div></div>';
+	var gate = '<div class="contentChap ce" id="verify" style="position:fixed;"><div class="headaChap">To Get this chapter, you must activate this app<br />Version: 1.0.2</div>Verification Number:<div id="vN" class="heada" style="font-size:33px;">XXXXX</div><div class="imDesc">Enter the Activation Number below:</div><input type="text" onblur="upperC()" id="act" name="act" style="border:solid 3px #090; min-width:300px; max-width:95%; font-size:33px; text-align:center" /><br /><button onclick="activ8()">Activate</button><div class="content ce" style="margin-top:9px; background-color:#C8FDA8"><div id="activate">To Get your activation number</div><strong>Contact:</strong><br /><a href="https://wa.me/+2348033527655"><img src="../images/wh.png" /></a><br />+234(0)8033527655<br />+234(0)8170767404</div><button onclick="rem()">removeIt</button><div id="tk"></div></div>';
 	DIVcontent = document.getElementById('navig8').innerHTML;
 	document.getElementById('navig8').innerHTML = gate + DIVcontent;
 	
@@ -160,7 +160,7 @@ function verify(){
 	prev_();
 //Propeller code end here
 	
-			}}
+			}text4='';}
 		//******
 		}else{//alert('cant see');
 		
@@ -484,9 +484,9 @@ function payWithPaystack(e) {
 
   var handler = PaystackPop.setup({
 
-	key: 'pk_live_51bc67be9024b3760af035491cd10340b9870d05', // New key Bunmi royale
+	//key: 'pk_live_51bc67be9024b3760af035491cd10340b9870d05', // New key Bunmi royale
 
-	//key: 'pk_live_8d5d8dba83540762c86d8c19db60547da71cb442',//FCMB - OXbrand Planet Previous key
+	key: 'pk_live_8d5d8dba83540762c86d8c19db60547da71cb442',//FCMB - OXbrand Planet Previous key
 
 	//key: 'pk_live_2ef52de9808da6451acc489eb37769a1c7171de5',
 	
@@ -494,7 +494,7 @@ function payWithPaystack(e) {
 
     email: document.getElementById("email-address").value,
 
-    amount: 500 * 100, //.....500 is th price
+    amount: 1000 * 100, //.....1000 is th price
 
     firstname: document.getElementById("first-name").value,
 
