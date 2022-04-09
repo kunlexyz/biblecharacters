@@ -102,7 +102,7 @@ var verify_content = '\
 \
 <div id="manual_pay">\
 <div style="margin: 3px;">\
-<img src="images/bible.jpg" class="img" >\
+<img src="images/bible2.jpg" class="img" >\
 </div>\
 \
 <div class="pay" onclick="showPayStack_box()">\
