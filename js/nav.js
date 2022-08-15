@@ -12,25 +12,29 @@ if(typeof localStorage.biO !== 'undefined'){
 }
 
 var Activation_ = '\
-<div id="manual_pay" style="display:none;">\
-  <div class="headaChap">    \
-      <h3>Activation Page</h3>\
+<div id="manual_pay2" style="display:none;">\
+<div class="pay" style="margin-top:10px;" onclick="manual_box(\'manual_pay\',\'manual_pay2\')">\
+&laquo; Back \
+</div>\
+  <div class="headaChap" style="font-size:18px;">    \
+      <h5>Activation Page</h5>\
       </div>\
-          Verification Number is:\
-      <div id="vN" class="heada" style="font-size:33px;">TT</div>\
+          <div style="font-size:22px;color:red;padding-top:0px;">Verification Number is:</div>\
+      <div id="vN" class="heada" style="font-size:33px;color:red;">TT</div>\
       <div class="imDesc">Enter the Activation Number below:</div>\
       <input type="text" onblur="upperC()" id="act" name="act" style="border:solid 3px #de2204; min-width:300px; max-width:95%; font-size:33px; text-align:center" /><br />\
       <button onclick="activ8()">Activate</button>\
   \
       <div class="content ce" style="margin-top:9px; background-color:#fdb8a8">\
             <div id="activate">\
-            To send verify number on WhatsApp, click any of the phone number below\
+            To send verification number on WhatsApp, click any of the phone number below\
           </div><strong>Contact:</strong><br /><a href="https://wa.me/+2348055441551?text=My%20Bible%20Character%20verification%20Number%20is%20'+ver+'"><img src="./images/wh.png" /><br />+234(0)8055441551</a><br /><a href="https://wa.me/+2348170767404?text=My%20Bible%20Character%20verification%20Number%20is%20'+ver+'">+234(0)8170767404</a><br /><br />\
             \
               \
   </div>\
   </div>\
   ';
+  /*
 var verify_content = '<div id="manual_pay2">\
 <div class="headaChap">    \
     To Get this chapter, you must activate this app<br />    Version: 1.0.2	\
@@ -97,7 +101,7 @@ var verify_content = '<div id="manual_pay2">\
 <div id="paystackEmbedContainer"></div></div>\
 <div style="display:none;">\
         <button onclick="rem()">Test Mode Id</button>        <div id="tk"></div></div>';
-        
+        */
 var verify_content = '\
 \
 <div id="manual_pay">\
@@ -111,9 +115,11 @@ Pay Now\
 <br>\
 or\
 <br>\
-\
+<div class="pay" onclick="manual_box(\'manual_pay2\',\'manual_pay\')">\
+Activate manually\
+</div>\
 <div style="font-size: 20px;">\
-<br /><a href="https://wa.me/+2348055441551?text=I%20want%20to%20make%20an%20enquiry on%20My%20Bible%20Character"><strong><i>For enquiry:</i></strong><br>\
+<a href="https://wa.me/+2348055441551?text=I%20want%20to%20make%20an%20enquiry on%20My%20Bible%20Character"><strong><i>For enquiry:</i></strong><br>\
  click here to contact us on<br>\
 <img src="./images/wh.png" /><br />+234(0)8055441551</a><br /><a href="https://wa.me/+2348170767404?text=I%20want%20to%20make%20an%20enquiry on%20My%20Bible%20Character">+234(0)8170767404</a><br />\
 </div>\
@@ -183,5 +189,10 @@ function hideSeti(){
 
 function showActivation_(){
     $('#verify').hide();
-    $('#manual_pay');
+    //$('#manual_pay');
+}
+
+function manual_box(x,y){
+    $("#"+y).slideUp(1000);
+    $("#"+x).slideDown(1000);	
 }
