@@ -1,5 +1,12 @@
 body{margin:0px; padding:0px;
 overflow:hidden;}
+#con_cover{
+  max-width: 480px;
+  margin: auto;
+}
+/*
+#install_btn{display: none;}
+*/
 .sub_bg{
 	
 	height:33vh;
