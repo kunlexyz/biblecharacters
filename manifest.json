@@ -51,7 +51,7 @@
             "sizes": "512x512",
           "purpose": "maskable"	 
         }
-    ]"screenshots" : [
+    ],"screenshots" : [
   {
     "src": "images/screenshot.png",
     "type": "image/png",
