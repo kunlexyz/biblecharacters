@@ -8,7 +8,6 @@
 body{
 padding:0px;
 margin:0px;
-overflow-y: hidden;
 }
 #canvas {
   border: 1px solid black;
@@ -79,15 +78,13 @@ overflow-y: hidden;
     font-weight: bold;
     cursor: pointer;
 }
-.y_txt{color: rgb(255, 217, 0);}
  </style>
 </head>
 <body>
  <table id="ala"
- style="position:fixed;width:100%;
+ style="position:absolute;width:100%;
  height:100vh;background:#222;
  text-align:center;
- z-index:2;
  display:none;
  "
  ><tr><td>
@@ -117,42 +114,19 @@ overflow-y: hidden;
  Ok
  </button>
  
-<div id="item" style="color: #fff;"></div>
-
  </td></tr></table>
  
- <div id="conBig" 
- style="width:99vw;
- height:200vh;
- ">
- <div id="confix" 
- style="position:fixed;
- z-index:1;
- "
- >
- 
- <canvas id="myCanvas"  
-  style="
-  border:1px solid #000000;">
-  </canvas>
+<canvas id="myCanvas" 
+onmousedown="mdown(event)" 
+onmouseup="mup(event)" 
+onmousemove="mmove(event)" 
+ style="
+ border:1px solid #000000;" width="360" 
+ height="600">
+ </canvas>
  
  <a href="index.html">
- <button style="
- margin:5px;
- ">Go Home</button></a>
- </div>
- </div>
- 
-  <canvas id="myCanvas2" 
-  onmousedown="mdown(event)" 
-  onmouseup="mup(event)" 
-  onmousemove="mmove(event)" 
-   style="
-   border:1px solid #000000;" >
-   </canvas>
- 
- <a href="index.html">
-	<button id="bt2" style="
+	<button style="
 	margin:5px;
 	">Go Home</button></a>
  
@@ -161,10 +135,11 @@ overflow-y: hidden;
 	<hr>
 	Another one
 	<hr>
+	
 	<canvas id="canvas" width="360" height="400">
 	Your browser does not support the HTML5 canvas tag.
 	</canvas>
-</div>
+ </div>
 
  <div class="overlay2" id="ov" onclick="closeNav()" style="display: block;">
 </div>
@@ -191,36 +166,12 @@ overflow-y: hidden;
 
  <script src="js/jq.js" type="text/javascript"></script>
 <script>
-if(window.screen.availWidth > 700){
-	document.getElementById('conBig').style.display='none';
-}else{
-	document.getElementById('myCanvas2').style.display='none';
-}
-var c = document.getElementById("myCanvas");
-var ctx = c.getContext("2d");
-//for desktop
-var c2 = document.getElementById("myCanvas2");
-var ctx2 = c2.getContext("2d");
-	ctx2.canvas.width=(window.innerWidth-3);
-	ctx2.canvas.height=550;
-  ofs_desk = c.offsetTop;
-  ofs_2_desk = c.offsetLeft;
-    var img = new Image();
-    img.src = './images/puzzle2.jpg';
-    img.onload = function() {
-        ctx2.drawImage(img, -3, -3,363,550);
-    };
 
-	// Get a reference to the element that you want to scroll to
-	var element = document.getElementById("bt2");
-//alert(element.scrollHeight);
-	element.scrollIntoView();
-	
 window.onload = function() {
 var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
 	ctx.lineJoin = "round";
-	ctx.canvas.width=(window.innerWidth-2);
+	//ctx.canvas.width=(window.innerWidth-2);
 	ctx.canvas.height=550;
   ofs = c.offsetTop;
   ofs_2 = c.offsetLeft;
@@ -314,7 +265,7 @@ a.ontouchend = function past(){
 		c = arr[i][2];
 		d = arr[i][3];
 		
-		ctx.moveTo(a,b);
+		ctx.moveTo((x-ofs_2),(y-ofs));
 		ctx.lineTo(c,d);
 	//	ctx.rect(0,0,20,20);
 	//	ctx.rect(120,(23*7),20,23);
@@ -325,76 +276,20 @@ a.ontouchend = function past(){
 	}
 	document.getElementById('c')
 	.innerHTML=x+'*'+y;
-	chek2(x,y,u,(v-ofs));
+	chek(x,y,u,(v-ofs));
 	//check(x,y,u,(v-ofs));
-	
-	var element = document.getElementById("bt2");
-	//alert(element.scrollHeight);
-	element.scrollIntoView();
 }
 
-function chek2(p,q,r,s){
-
-  var m=false;
-  var n = false;
-  o=false;
-  o2='';
-for(i=0;i<ans.length;i++){
-  
-  x2 =(20*ans[i][1])-24;
-  x3 =(20*ans[i][1])+25;
-  y2 =(23*ans[i][2])-7;
-  y3 =(23*ans[i][2])+28;
-  
-  x4 =(20*ans[i][3])-24;
-  
-  x5 =(20*ans[i][3])+25;
-  y4 =(23*ans[i][4])-7;
-  y5 =(23*ans[i][4])+28;
-  
-//	ctx.moveTo(x2,y2);
-//	ctx.lineTo(x4,y4);
-  //ctx.rect(x2,y2,20,23);
-  //ctx.strokeStyle="green";
-  //ctx.stroke();
-  
-  if(p>x2&&p<x3&&q>y2&&q<y3){
-  m=true;
-  //alert(m);
-  }
-  if(r>x4&&r<x5&&s>y4&&s<y5){
-  n=true;
-  }
-  
-  if(m ==true && n==true){
-  //alert('you got: peter');
-  o=true;
-  o2=ans[i][0];
-  ans2[i]="v";
-  break;
-  }
-  //console.log(ans[i][0]);
-  
-}
-if(o ==true){
-//alert('you got:'+o2);
-arr[arr.length]=[x,y,u,v];
-win(o2);
-score();
-}
-}
 }
     var img = new Image();
     img.src = './images/puzzle2.jpg';
 
 //mouse event
-	var c2 = document.getElementById("myCanvas2");
-	ctx2 = c2.getContext("2d");
 var drawin = false;
 function mdown(event){
 	drawin=true;
-	var c2 = document.getElementById("myCanvas2");
-	ctx2 = c2.getContext("2d");
+	var c = document.getElementById("myCanvas");
+	ctx = c.getContext("2d");
 	console.log(event.clientX);
 	x = event.clientX;
 	y = event.clientY;
@@ -404,22 +299,22 @@ function mmove(event){
 	u = event.clientX;
 	v = event.clientY;
   
-  ctx2.beginPath();
-  ctx2.drawImage(img, -3, -3,363,550);
-  ctx2.lineWidth="3";
+  ctx.beginPath();
+  ctx.drawImage(img, -3, -3,363,550);
+  ctx.lineWidth="3";
   
-ctx2.moveTo((x-ofs_2),(y-ofs));
-ctx2.lineTo((u-ofs_2),(v-ofs));
-ctx2.strokeStyle="purple";
-ctx2.stroke();
+ctx.moveTo((x-ofs_2),(y-ofs));
+ctx.lineTo((u-ofs_2),(v-ofs));
+ctx.strokeStyle="purple";
+ctx.stroke();
 
 }else{
 	
-var c2 = document.getElementById("myCanvas2");
-ctx2 = c.getContext("2d");
+var c = document.getElementById("myCanvas");
+ctx = c.getContext("2d");
 	x = event.clientX;
 	y = event.clientY;
-		ctx2.moveTo((x-ofs_2),(y-ofs));
+		ctx.moveTo((x-ofs_2),(y-ofs));
 	}
 }
 function mup(event){
@@ -431,14 +326,14 @@ function mup(event){
 		c = arr[i][2];
 		d = arr[i][3];
 		
-		ctx2.moveTo(a,b);
-		ctx2.lineTo(c,d);
-	//	ctx2.rect(0,0,20,20);
-	//	ctx2.rect(120,(23*7),20,23);
+		ctx.moveTo(a,b);
+		ctx.lineTo(c,d);
+	//	ctx.rect(0,0,20,20);
+	//	ctx.rect(120,(23*7),20,23);
 		
-		//ctx2.rect(a,b,(20),(20));
-		ctx2.strokeStyle="purple";
-		ctx2.stroke();
+		//ctx.rect(a,b,(20),(20));
+		ctx.strokeStyle="purple";
+		ctx.stroke();
 	}
 	document.getElementById('c')
 	.innerHTML=x+'*'+y;
@@ -566,20 +461,14 @@ var ans=[
 var ans2=[];sco=0;
 function score(){
 	sco=0;
-	mak='';
-	to_txt='';
-	for(i=0;i<ans.length;i++){
-		
+	for(i=0;i<ans2.length;i++){
 		if( typeof ans2[i] !== 'undefined'){
 			sco++;
-			mak="<span class='y_txt'>&radic;</span>";
-		}else{mak='';}
-		to_txt=to_txt+'('+(i+1)+')-'+ans[i][0]+' '+mak+', ';
-
+		}
 	}
 	
 	$('#ele').html('Scores:'+sco+'/<span style="color:#ff0;">'+ans.length+'</span>');
-	$('#item').html(to_txt);
+	
 }
 
 function play(){
@@ -601,7 +490,6 @@ i can only promise one thing:
 outstanding result.
 the kind you found no elsewhere
 
-https://forms.gle/VxgqDfDE9hD1mS2p8
 */
 </script>
 </body>

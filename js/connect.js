@@ -33,6 +33,11 @@ var leta = 'ZYXWVFEDCB';
 letta = 'JKLMNOPQRS';
 text = '';
 textLetta = '';
+serva = 'https://youreventplug.com';
+//serva = 'http://localhost';
+if(location.host==''){
+	serva = 'http://localhost';
+}
 //generator
 function gener(){
 	text = '';
@@ -94,8 +99,8 @@ function verify(){
 	//if(localStorage.actidKey)
 	if(typeof localStorage.biO !== 'undefined'){
 		document.getElementById('vN').innerHTML = localStorage.biO;
-		headcon = 'To Get This Chapter, You Must Activate This App<br />Version: 3.0.1';
-		document.getElementsByClassName('headaChap')[0].innerHTML = headcon + '<div> Your App ID:<span id="AppId_unpaid">'+localStorage.actidKey+'</span></div>';
+		headcon = 'To Get This Chapter, You Must Activate This App<br />';
+		document.getElementsByClassName('headaChap')[0].innerHTML = headcon + '<div><span id="AppId_unpaid"></span></div>';
 		//check if app has been activate
 		text2 = '';
 		var veriKey = localStorage.actN;
@@ -277,6 +282,8 @@ function activ8(){
 			textLetta += letta[Math.floor(Math.random()*9)];
 			}
 	localStorage.actN = veriKey;
+	localStorage.sutats = 1514;
+
 				document.getElementById('verify').style.display='none';
 				document.getElementById('coHide').style.display='block';
 				/*
@@ -591,3 +598,139 @@ function theme2(title,text,groundD,groundOdd,titleText){
 	$('.pa').css({"background-color":groundD,"color":textD});
 }
 */
+// online reg
+
+function srch(){
+	var user_id = localStorage.actidKey;
+	veri_id = localStorage.biO;
+	ac = localStorage.actN;
+	
+	if(typeof localStorage.BioEmail == 'undefined')
+	{email = localStorage.BioEmail;}else{ email = 'none';}
+	
+	if(typeof localStorage.BioPhone == 'undefined')
+	{phone = localStorage.BioPhone;}else{ phone = 'none';}
+	
+	if(typeof localStorage.sutats == 'undefined')
+    {
+        localStorage.sutats = 1566;
+	    localStorage.LT = 0;
+    }
+	sut = localStorage.sutats;
+	
+	if(typeof localStorage.regis == 'undefined' || localStorage.reg == 'empty')
+    {
+        
+    }
+    
+    // register the app once
+    //send_to_reg();
+    
+}
+srch();
+function srch2(){
+	
+	//alert(x);
+	//$("#result").load("card2.php?quick_search=qq&member="+qs);
+	var p1 = localStorage.actidKey;
+	p2 = localStorage.biO;
+	p3 = localStorage.actN;
+	p4 = localStorage.sutats;
+	p5 = localStorage.LT;
+
+	if(p5.length > 15){
+		p5 = p5.slice(4,24);
+	}
+	p5 = p5.replace(/ /g,'-');
+	//alert("i dey");
+	//return p1;
+	//Expecting /xxxxappxxxx/mytatus/user_app_id/veri_no/key/state
+	console.log(serva+"/xxxbiblexxx/mytatus/"+p1+"/"+p2+"/"+p3+"/"+p4+"/"+p5);
+	$.get(serva+"/xxxbiblexxx/mytatus/"+p1+"/"+p2+"/"+p3+"/"+p4+"/"+p5, function(data, status){
+    //alert("Data: " + data + "\nStatus: " + status);
+	var data2 = data.split("+");
+	//document.getElementById('tt').innerHTML = "Switch :- "+data2[0]+"Lock Time :- "+data2[0];
+	console.log(data2[0]);
+	
+	if(status == 'success'){}
+	dat = Number(data2[0]);
+	if(dat == 1514){
+		
+		localStorage.sutats = 1514;
+					
+		document.getElementById('tk').innerHTML ='App is opened by the Admin <br /> Reg No :'+ localStorage.actidKey + '<br /> Click the button below to go back to "table of content" <br /> <a href="content.html"><button>Content</button></a>';
+		document.getElementById('verify').style.display='none';
+        document.getElementById('coHide').style.display='block';
+        
+	}
+	if(dat == 1566){
+		
+		localStorage.sutats = 1566;
+		//localStorage.actN = 0;
+					
+		document.getElementById('tk').innerHTML ='Deactivated by the admin <br /> Reg No :'+ localStorage.actidKey + '<br /> Contact Admin for more info. <br /> <a href="content.html"><button>Content</button></a>';
+		document.getElementById('verify').style.display='block';
+        document.getElementById('coHide').style.display='none';
+        
+
+	}
+	dat_2=Number(data2[1]);
+	if(dat_2 > 0){
+		ty = data2[1];//*1000;//*60;
+		console.log('ty+'+ty);
+		localStorage.LT = ty;
+		//upd(ty);
+	}else{
+
+	}
+  });
+
+  sr = setTimeout(srch2,60000);
+}
+srch2();
+function submit_name(){ 
+    name = document.getElementById('name').value;
+    phone = document.getElementById('phone').value;
+    //localStorage.phone
+    if(phone.length <10){
+        document.getElementById('help').innerHTML = 'Incorrect Number! Pls enter a valid phone number';
+        return;
+    }else if(name.length <2){
+        document.getElementById('help').innerHTML = 'Name cannot be empty or lessthan 3 letters';
+        return;
+    }else{
+        localStorage.phone = phone;
+        localStorage.name = name;
+        localStorage.regis = 'l_Reg';
+        //unPopName();
+        send_to_reg();
+    }
+}
+function send_to_reg(){
+    
+    if (localStorage.regis == 'undefined'){
+        popName();
+        return;
+    }
+    
+	var p1 = localStorage.actidKey;
+	p2 = localStorage.biO;
+	p3 = localStorage.phone;
+	p4 = localStorage.name;
+	
+    $.get(serva+"/xxxxappxxxx/regis/"+p1+"/"+p2+"/"+p3+"/"+p4, function(data, status){
+    //alert("Data: " + data + "\nStatus: " + status);
+    
+	console.log(data);
+	if(status == 'success'){
+        localStorage.regis = 'G_reg';
+    }
+        
+    console.log(status);
+	
+    });
+
+    if(localStorage.regis == 'l_Reg'){
+    setTimeout(send_to_reg,30000);
+    }
+}

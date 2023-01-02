@@ -25,8 +25,9 @@ function chk(x,y,z){
 	xx="<img src='./images/wrongx.jpg' alt='wrong' />";
 	cc="<img src='./images/correctx.jpg' alt='correct' />";
 	//alert(x);
+	z1=a.replace(/^\s+|\s+$/gm,'');
 	
-	if(a.toUpperCase()==z.toUpperCase()){
+	if(z1.toUpperCase()==z.toUpperCase()){
 	document.getElementById(y).innerHTML=cc;
 	}else{
 	document.getElementById(y).innerHTML=xx;

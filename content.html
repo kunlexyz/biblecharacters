@@ -125,7 +125,6 @@ The Author
 <script type="text/javascript" src="js/nav.js">
 </script>
 <script type="text/javascript" src="js/jq.js"></script>
-<script type="text/javascript" src="js/connect.js">
 </script>
 <!-- 
 <script type="text/javascript" src="js/biz.js">
@@ -159,5 +158,18 @@ function ani(){
 }
 
 setTimeout(ani,2000);
+
+
+
+var old='';oldx='';
+function openNav() {
+  document.getElementById("myNav").style.width = "75%";
+  document.getElementsByClassName('overlay2')[0].style.display='block';
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+  document.getElementsByClassName('overlay2')[0].style.display='none';
+}
 </script>
 </html>

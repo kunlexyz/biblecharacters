@@ -23,8 +23,14 @@ var Activation_ = '\
           <div style="font-size:22px;color:red;padding-top:0px;">Verification Number is:</div>\
       <div id="vN" class="heada" style="font-size:33px;color:red;">TT</div>\
       <div class="imDesc">Enter the Activation Number below:</div>\
-      <input type="text" onblur="upperC()" id="act" name="act" style="border:solid 3px #de2204; min-width:300px; max-width:95%; font-size:33px; text-align:center" /><br />\
-      <button onclick="activ8()">Activate</button>\
+      <input type="text" onblur="upperC()" onkeyup="activ8()" id="act" name="act" style="border:solid 3px #de2204; min-width:300px; max-width:95%; font-size:33px; text-align:center" /><br />\
+      \
+      <div class="pay" style="margin-top:10px;" onclick="activ8()">\
+      Activate \
+      </div>\
+       - <div class="pay" style="margin-top:10px;" onclick="srch2()">\
+      Open Gateway \
+      </div>\
   \
       <div class="content ce" style="margin-top:9px; background-color:#fdb8a8">\
             <div id="activate">\
