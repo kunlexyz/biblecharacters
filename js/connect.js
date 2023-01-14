@@ -35,7 +35,7 @@ text = '';
 textLetta = '';
 serva = 'https://youreventplug.com';
 //serva = 'http://localhost';
-if(location.host==''){
+if(location.host=='' || location.host=='localhost'){
 	serva = 'http://localhost';
 }
 //generator
@@ -685,7 +685,8 @@ function srch2(){
 	}
   });
 
-  sr = setTimeout(srch2,60000);
+  sr = setTimeout(srch2,60000);  
+	
 }
 srch2();
 function submit_name(){ 
@@ -718,7 +719,7 @@ function send_to_reg(){
 	p3 = localStorage.phone;
 	p4 = localStorage.name;
 	
-    $.get(serva+"/xxxxappxxxx/regis/"+p1+"/"+p2+"/"+p3+"/"+p4, function(data, status){
+    $.get(serva+"/xxxbiblexxx/regis/"+p1+"/"+p2+"/"+p3+"/"+p4, function(data, status){
     //alert("Data: " + data + "\nStatus: " + status);
     
 	console.log(data);
@@ -733,4 +734,49 @@ function send_to_reg(){
     if(localStorage.regis == 'l_Reg'){
     setTimeout(send_to_reg,30000);
     }
+}
+
+
+function srch3(){
+	
+	//alert(x);
+	//$("#result").load("card2.php?quick_search=qq&member="+qs);
+	
+	p2 = localStorage.biO;
+	p3 = document.getElementById('act').value;
+	if(p3 < 7){
+		document.getElementById('mmsg').innerHTML="invalid card";
+		return;
+	}
+	
+	//#Expecting hostname.com/xxxxappxxxx/recharge/voucher/ver_number
+	console.log(serva+"/xxxbiblexxx/recharge/"+p3+"/"+p2);
+	$.get(serva+"/xxxbiblexxx/recharge/"+p3+"/"+p2, function(data, status){
+    //alert("Data: " + data + "\nStatus: " + status);
+	//var data2 = data.split("+");
+	//document.getElementById('tt').innerHTML = "Switch :- "+data2[0]+"Lock Time :- "+data2[0];
+	
+	if(data == 1514){
+		
+		localStorage.sutats = 1514;
+					
+		document.getElementById('tk').innerHTML ='Activated Successfully <br /> Reg No :'+ localStorage.actidKey + '<br /> Click the button below to go back to "table of content" <br /> <a href="content.html"><button>Content</button></a>';
+		document.getElementById('verify').style.display='none';
+        document.getElementById('coHide').style.display='block';
+		document.getElementById('mmsg').innerHTML ='Activated Successfully';
+        
+	}else{
+		document.getElementById('mmsg').innerHTML=data;		
+	}
+	
+	
+  });
+
+}
+
+function activ82(){
+	
+	if(document.getElementById('act').value.length >= 7){
+		srch3();
+	}
 }

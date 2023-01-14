@@ -15,6 +15,42 @@
         <meta name="apple-mobile-web-app-status-bar" content="#FFE1C4">
         <meta name="theme-color" content="#FFE1C4">
 	<style type="text/css">
+
+
+/* For Namebox that send names & phone_No to server */
+
+.pCon{
+	margin:auto;
+	margin-top:80px;
+	padding:20px;
+	background:#eee;
+	max-width:350px;
+	text-align:center;
+    box-shadow: 0 2px 6px rgb(0 0 0 / 12%), 0 4px 7px rgb(0 0 0 / 24%);
+}
+.pas2{
+	font-size:22px;
+	border-radius:8px;
+	border:solid 2px #f00;
+	padding:10px;
+	max-width:90%;
+	margin-top: 5px;
+	background:#fff;
+}
+.btnRed2{
+    color: #FFF;
+    background-color: #F00;
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btnC2{
+    border: solid 1px #F00;
+    border-radius: 5px;
+    display: inline-block;
+    overflow: hidden;
+}
 	</style>
 </head>
 
@@ -130,6 +166,53 @@ display: none;"><span class=""> » </span><br>Click here to download the Android
     </div>
 
     <div id="verify" style="display:none;"></div>
+	<div id="namebox" style="z-index: 2;position:fixed; top:40px; width: 100%;
+	display: none;">
+		<div id="reg_box" class="pCon shadow">
+			<div class="closebtn" onclick="unPopName()"
+			style="background: red;top:none;font-size: 45px;
+			cursor: pointer;
+			color: #F60;
+			color: #FFF;
+			line-height: 40px;
+			font-weight: bold;"
+			>×</div>
+				<div>Please enter your:</div>
+				Name:<br>
+				<input type="text" id="name" class="pas2" >
+	
+				<br>
+				Phone Number:<br>
+				<input type="tel" id="phone" class="pas2" >
+				
+					<div class="ce">
+				<div onclick="submit_name()" class="btnRed btnC">Submit</div>
+				<div onclick="unPopName()" class="btnRed btnC">←Back</div>
+					</div>
+				<div id="help">
+					This info help us to serve you better
+				</div>
+				<br>
+				<div onclick="srch2()" class="btnRed btnC">Open Gateway</div>
+				<div onclick="openRef()" class="btnRed btnC">Referrer</div>
+		</div>
+	
+	
+		<div id="ref_box" class="pCon shadow" style="display: none;">
+			<div id="ref_help">Please enter your 
+				<br>
+				Refferer's phone number:
+			</div><br>
+			<input type="tel" id="refferer" class="pas2" >
+				
+			<div class="ce">
+				<div onclick="submit_refferer()" class="btnRed btnC">Submit</div>
+				<div onclick="backToPopName()" class="btnRed btnC">←Back</div>
+			</div>
+	
+		</div>
+	</div>
+
 </body>
 <script src="js/app.js"></script>
 <script src="js/jq.js"></script>
@@ -216,5 +299,132 @@ function instal(){
 		deferredPrompt = null;
 	});
 }
+
+/* THE REGISTERATION */
+
+var serva = 'https://youreventplug.com';
+//serva = 'http://localhost';
+if(location.host=='' || location.host=='localhost'){
+	serva = 'http://localhost';
+}
+
+function unPopName(){
+        document.getElementById('namebox').style.display = 'none';
+        document.getElementsByClassName('overlay2')[0].style.display='none';
+		closeNav();
+}
+
+function submit_name(){ 
+    name = document.getElementById('name').value;
+    phone = document.getElementById('phone').value;
+    //localStorage.phone
+    if(phone.length <10){
+        document.getElementById('help').innerHTML = 'Incorrect Number! Pls enter a valid phone number';
+        return;
+    }else if(name.length <2){
+        document.getElementById('help').innerHTML = 'Name cannot be empty or lessthan 3 letters';
+        return;
+    }else{
+        localStorage.phone = phone;
+        localStorage.name = name;
+        localStorage.regis = 'l_Reg';
+        unPopName();
+        send_to_reg();
+    }
+}
+
+function send_to_reg(){
+    /*
+    if (localStorage.regis == 'undefined'){
+        popName();
+        return;
+    }
+    */
+	var p1 = localStorage.actidKey;
+	p2 = localStorage.biO;
+	p3 = localStorage.phone;
+	p4 = localStorage.name;
+	
+    $.get(serva+"/xxxbiblexxx/regis/"+p1+"/"+p2+"/"+p3+"/"+p4, function(data, status){
+    //alert("Data: " + data + "\nStatus: " + status);
+    
+	console.log(data);
+	if(status == 'success'){
+        localStorage.regis = 'G_reg';
+    }
+    
+    
+    console.log(status);
+    
+	
+    });
+
+    if(localStorage.regis == 'l_Reg'){
+    setTimeout(send_to_reg,30000);
+    }
+}
+
+//version 6 code
+
+function openRef(){
+    $('#reg_box').slideUp();
+    $('#ref_box').slideDown();
+}
+function backToPopName(){
+    $('#reg_box').slideDown();
+    $('#ref_box').slideUp();
+}
+
+function submit_refferer() {
+    ref_man = document.getElementById('refferer').value;
+    document.getElementById('ref_help').innerHTML = 'Loading, Please click the send button again after a minute.';
+    k=localStorage.biO;
+
+    if(ref_man.length <10){
+        document.getElementById('ref_help').innerHTML = 'Incorrect Number! Pls enter a valid phone number. It cannot be less than 10';
+        return;
+    }else if(typeof localStorage.ref_reg != 'undefined'){ 
+        document.getElementById('ref_help').innerHTML = 'You have entered a refferer before.<br>'+localStorage.ref_reg+'<br>Contact the Admin if you want to change it.';    
+        return;
+    }else{   
+        $.get(serva+"/xxxbiblexxx/refer/"+ref_man+'/'+k, function(data, status){
+
+            console.log(serva+"/xxxbiblexxx/refer/"+ref_man+'/'+k);
+            if(data == 'success'){
+                localStorage.ref_reg = ref_man;
+                document.getElementById('ref_help').innerHTML = 'Refferal Updated Successful';
+            }
+            if(status != 'success'){
+                document.getElementById('ref_help').innerHTML = 'Internet Error! Please, Try again when you have internet';
+            }
+            console.log(data);
+            console.log(status);
+
+        });
+    }
+    
+}
+
+//Js code for mamebox to pop-up every 1 min
+
+function popName(){
+    if(typeof localStorage.regis == 'undefined'){
+		setTimeout(popName,30000);
+	}else{
+        if(localStorage.phone.length > 2){
+            document.getElementById('phone').value = localStorage.phone;
+        }
+        if(localStorage.name.length > 2){
+            document.getElementById('name').value = localStorage.name;
+        }
+    }
+        //alert('i work');
+        document.getElementById('namebox').style.display = 'block';
+        document.getElementsByClassName('overlay2')[0].style.display='block';
+
+    //if(){}
+	closeNav();
+}
+
 </script>
 </html>

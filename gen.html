@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>voucher Gen</title>
+    </head>
+    <body>
+
+        <div id="gen"></div>
+
+<script type="text/javascript">
+
+/*************YEK**********/
+var leta = 'KLMNO123FEDCB89';
+
+function g_r8(){
+    
+	text = '';
+    for (i = 0; i < 7; i++) {
+        text += leta[Math.floor(Math.random()*leta.length)];
+    }
+    return text;
+}
+arr=[];
+text2='';
+function g_100(){
+    if(arr.length < 100){
+        x =g_r8();
+        if(arr.includes(x)){}else{
+            arr.push(x);
+            text2 += x+', ';
+        }
+        g_100();
+    }else{
+        document.getElementById('gen').innerHTML=text2;
+    }
+    
+}
+</script>
+    </body>
+</html>
