@@ -7,6 +7,7 @@ const assets = [
   '/copyright.html',
   '/inner.html',
   '/puzzle.html',
+  '/draw.html',
 
   '/forchildren/index.html',
   '/android/index.html',
@@ -97,6 +98,9 @@ const assets = [
   '/images/x.jpg',
   '/images/y.jpg',
   '/images/z.jpg',
+  '/images/finger.png',
+  './images/puzzle2.jpg',
+  'images/starRev.png',
 /*
   '/js/app.js',
   '/js/ui.js',
